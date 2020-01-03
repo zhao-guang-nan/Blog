@@ -16,7 +16,33 @@ layout: default
         </div>
     </div>
 </header>
-
+<!--搜索框-->
+<div id="search-container">
+        <input type="text" placeholder="请输入搜索内容..." name="" id="search-input" value="" style="width:400px;"/>
+        <ul id="results-container" style="margin-left: 0;text-align: start;"></ul>
+        <!-- <button>搜索</button> -->
+</div>
+<style>
+    #search-container {
+      max-width: 40em;
+      padding: 1em;
+      margin: 1em auto;
+      /* border: 1px solid lightgrey; */
+    }
+  </style>
+<script src="{{ site.baseurl }}/js/simple-jekyll-search.min.js"></script>
+<script>
+    window.simpleJekyllSearch = new SimpleJekyllSearch({
+      searchInput: document.getElementById('search-input'),
+      resultsContainer: document.getElementById('results-container'),
+      json: '{{ site.baseurl }}/json/search.json',
+      searchResultTemplate: '<li><a href="{url}?query={query}" title="{desc}">{title}</a></li>',
+      noResultsText: 'No results found',
+      limit: 10,
+      fuzzy: false,
+      exclude: ['Welcome']
+    })
+</script>
 <!-- Main Content -->
 <div class="container">
 	<div class="row">
