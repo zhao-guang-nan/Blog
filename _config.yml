@@ -1,10 +1,10 @@
 # Site settings
-title: GuangNan Blog
-SEOTitle: 光南博客 | GuangNan Blog
+title: GuangNan notes
+SEOTitle: 光南笔记 | GuangNan notes
 header-img: img/post-bg-desk.jpg
 email: zhaoguangna11@outlook.com
 description: "Every failure is leading towards success."
-keyword: "光南博客"
+keyword: "光南笔记"
 url: "http://zhao-guang-nan.github.io"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
 github_repo: "https://github.com/zhao-guang-nan/zhao-guang-nan.github.io.git" # you code repository
