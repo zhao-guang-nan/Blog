@@ -82,14 +82,14 @@ kramdown:
 # disqus_username: qiubaiying
 
 # Gitalk
-#gitalk:
-#  enable: true    #是否开启Gitalk评论
-#  clientID: f2c84e7629bb1446c1a4                            #生成的clientID
-#  clientSecret: ca6d6139d1e1b8c43f8b2e19492ddcac8b322d0d    #生成的clientSecret
-#  repo: qiubaiying.github.io    #仓库名称
-#  owner: qiubaiying    #github用户名
-#  admin: qiubaiying
-#  distractionFreeMode: true #是否启用类似FB的阴影遮罩
+gitalk:
+  enable: true    #是否开启Gitalk评论
+  clientID: 40e8d2bce8d798da9488                            #生成的clientID
+  clientSecret: 56bebdf7d971d28d7faa30d1fd3462d0da8cedb3    #生成的clientSecret
+  repo: zhao-guang-nan.github.io    #仓库名称
+  owner: zhao-guang-nan    #github用户名
+  admin: zhao-guang-nan
+  distractionFreeMode: true #是否启用类似FB的阴影遮罩
 
 
 # 统计
