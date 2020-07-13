@@ -1,0 +1,106 @@
+I"�<h2 id="qt-ifw的简介">QT IFW的简介</h2>
+
+<p> Qt Installer Framework简称 Qt IFW，由 Qt 官方提供，以前仅用于 Qt 本身，但现在已经发布了，用于创建通用的安装程序。官网使用说明地址:</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">https://doc.qt.io/qtinstallerframework/
+</span></code></pre></div></div>
+
+<p><strong>IFW软件下载地址:</strong></p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">http://download.qt.io/official_releases/qt-installer-framework/
+</span></code></pre></div></div>
+<h2 id="ifw的安装步骤">IFW的安装步骤</h2>
+
+<p>1.首先到IFW的网址去下载IFW,我的是Windows版本的：</p>
+
+<p><a href="https://imgchr.com/i/UEqsEt"><img src="https://s1.ax1x.com/2020/07/08/UEqsEt.png" alt="UEqsEt.png" /></a></p>
+
+<p>2.然后安装好IFW之后，IFW的目录结构以及说明如下：</p>
+
+<p><img src="https://s1.ax1x.com/2020/07/10/UKhkRO.png" alt="UKhkRO.png" /></p>
+
+<p>3、把IFW的安装目录下的bin目录添加到系统环境变量。</p>
+
+<p>4、到此为止，IFW已经安装完成。</p>
+
+<h2 id="利用ifw来制作一个简单的安装包">利用IFW来制作一个简单的安装包</h2>
+
+<p>1、首先到IFW的安装目录下的<strong>examples</strong>文件夹拷贝<strong>startmenu</strong>这个例子到桌面。</p>
+
+<p>2、可以看到文件夹地下有<strong>config</strong>文件夹与<strong>packages</strong>文件夹，其中<strong>config</strong>文件夹下有一个<strong>config.xml</strong>，具体要知道xml的每个字段的意思，可以参考一下IFW安装目录下的<strong>doc</strong>文档说明，对应的配置如下：</p>
+
+<p><img src="https://s1.ax1x.com/2020/07/10/UKIiiq.png" alt="UKIiiq.png" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">元素</th>
+      <th style="text-align: left">描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><Title></Title></td>
+      <td style="text-align: left">标题栏上的安装程序名称</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><Name></Name></td>
+      <td style="text-align: left">被添加到页面名称和简介文本中的应用程序名称</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><Version></Version></td>
+      <td style="text-align: left">程序的版本号</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><Publisher></Publisher></td>
+      <td style="text-align: left">软件的发布者（如 Windows 控制面板中所示）</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><StartMenuDir></StartMenuDir></td>
+      <td style="text-align: left">Windows 开始菜单中产品的默认程序组名称</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><TargetDir></TargetDir></td>
+      <td style="text-align: left">程序安装的目标路径</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><RemoteRepositories></RemoteRepositories></td>
+      <td style="text-align: left">软件升级的仓库地址</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>3、同时也可以看到问价夹下有一个<strong>packages</strong>目录，这个目录时存放着软件安装包的组件，可以放多个安装包。目前目录里面默认包含的是<strong>org.qtproject.ifw.example</strong>这个安装包，这个安装包的目录下包含<strong>data</strong>与<strong>meta</strong>文件夹，其中<strong>data</strong>文件夹是放入自己的软件安装包，比如：我的安装软件是<strong>LogClient</strong></p>
+
+<p><img src="https://s1.ax1x.com/2020/07/10/UK7eOS.png" alt="UK7eOS.png" /></p>
+
+<p><strong>meta</strong>目录下有两个文件，一个是<strong>installscript.qs</strong>与<strong>package.xml</strong>文件，其中<strong>installscript.qs</strong>编写可以参照<strong>doc</strong>目录下的语法，<strong>package.xml</strong>文件是当前<strong>org.qtproject.ifw.example</strong>这个安装包的版本信息，如果需要单独对这个软件升级的话，可以更改这里的版本号即可。</p>
+
+<p>4、完成之后，可以在<strong>startmenu</strong>目录打开<strong>Powershell</strong>，输入<strong>binarycreator -c config\config.xml -p packages MyInstaller.exe -v</strong>指令，如下：</p>
+
+<p><img src="https://s1.ax1x.com/2020/07/10/UKHm1x.png" alt="UKHm1x.png" /></p>
+
+<p>可以看到目录下生成了一个安装包：</p>
+
+<p><img src="https://s1.ax1x.com/2020/07/10/UKH3AH.png" alt="UKH3AH.png" /></p>
+
+<p>5、到此为止，已经完成了一个简单的安装包制作，尝试安装这个软件，截图如下所示：</p>
+
+<p><img src="https://s1.ax1x.com/2020/07/10/UKH0Hg.png" alt="UKH0Hg.png" /></p>
+
+<p><img src="https://s1.ax1x.com/2020/07/10/UKHrNj.png" alt="UKHrNj.png" /></p>
+
+<p><img src="https://s1.ax1x.com/2020/07/10/UKH6Cn.png" alt="UKH6Cn.png" /></p>
+
+<p><img src="https://s1.ax1x.com/2020/07/10/UKH2vV.png" alt="UKH2vV.png" /></p>
+
+<p>6、完成之后，就可以实现自己的安装包制作了。</p>
+
+<h2 id="利用ifw的扩展">利用IFW的扩展</h2>
+
+<p>IFW可以实现<strong>软件检测更新</strong>，<strong>自定义UI</strong>等待，IFW安装目录下的<strong>doc</strong>文件夹下很详细，需要更深入学习。</p>
+
+<h2 id="简单的例子参考">简单的例子参考</h2>
+
+<p>https://github.com/zhao-guang-nan/simple_IFW_Project</p>
+:ET
