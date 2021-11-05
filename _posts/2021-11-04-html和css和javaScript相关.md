@@ -17,6 +17,12 @@ tags:
 ​	这个博客的文章有从头到尾的很好教程
 ​	`https://blog.csdn.net/m0_49028830/article/details/107358072?spm=1001.2014.3001.5501`
 
+## 2、bootstrap学习地址
+
+​	`https://www.w3schools.com/bootstrap4/bootstrap_typography.asp`
+
+
+
 ​	
 
 
